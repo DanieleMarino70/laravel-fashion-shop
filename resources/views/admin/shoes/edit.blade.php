@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('shoes.update') }}" method="POST">
+        <form action="{{ route('shoes.update', $shoe) }}" method="POST">
             @method('PUT') @csrf
         
             <label for="manufacturer" class="form-label">manufacturer</label>
