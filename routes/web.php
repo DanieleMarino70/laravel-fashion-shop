@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShoeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/backoffice', function () {
-    return view('admin.shoes.index');
-})->middleware(['auth', 'verified'])->name('backoffice');
+Route::get('/backoffice', [ShoeController::class, 'index'])->middleware(['auth', 'verified'])->name('backoffice');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
