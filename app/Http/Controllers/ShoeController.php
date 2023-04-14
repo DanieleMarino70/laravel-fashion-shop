@@ -52,7 +52,7 @@ class ShoeController extends Controller
      */
     public function show(Shoe $shoe)
     {
-        //
+        return view('guest.shoes.show', compact('shoe'));
     }
 
     /**

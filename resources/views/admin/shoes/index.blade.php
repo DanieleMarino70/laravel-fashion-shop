@@ -31,7 +31,8 @@
 
                     <td><a href="{{ route('shoes.edit', $shoe)}}">modifica</a></td>
                     <td>
-                        <a href="{{ route('backoffice')}}">dettaglio</a>
+                        <a href="{{ route('shoes.show', $shoe)}}">dettaglio</a>
+
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $shoe->id }}">
                             Elimina              
                         </button>
