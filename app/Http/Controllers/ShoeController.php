@@ -59,7 +59,7 @@ class ShoeController extends Controller
      */
     public function edit(Shoe $shoe)
     {
-        //
+        return view('admin.shoes.edit', compact('shoe'));
     }
 
     /**
@@ -71,7 +71,10 @@ class ShoeController extends Controller
      */
     public function update(Request $request, Shoe $shoe)
     {
-        //
+        $data = $request->all();
+        $shoe->update($data);
+        return redirect()->route('shoes.index');
+
     }
 
     /**
