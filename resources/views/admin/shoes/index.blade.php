@@ -3,7 +3,9 @@
 @section('content')
 
     <div class="container">
-
+        <div class="d-flex justify-content-end mt-5">
+            <a href="{{route('create')}}" class="btn btn-primary">Aggiungi Scarpa</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>

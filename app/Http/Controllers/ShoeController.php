@@ -14,7 +14,7 @@ class ShoeController extends Controller
      */
     public function index()
     {
-        
+
         $shoes = Shoe::all();
         return view('admin.shoes.index', compact('shoes'));
     }

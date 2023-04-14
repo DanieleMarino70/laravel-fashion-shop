@@ -25,6 +25,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/create', function () {
+        return view('admin.shoes.create');
+    })->name('create');
 });
 
-require __DIR__.'/auth.php';
+Route::resource('shoes', ShoeController::class);
+
+require __DIR__ . '/auth.php';
