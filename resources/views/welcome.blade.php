@@ -6,7 +6,7 @@
         <div class="col mb-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">{{$shoe->model}}</h5>
+                    <h5 class="card-title"><a href="{{route('shoes.show', $shoe)}}">{{$shoe->model}}</a></h5>
                     <h6 class="card-subtitle">{{$shoe->manufacturer}}</h6>
                     <p class="card-text">
                         {{$shoe->description}}
