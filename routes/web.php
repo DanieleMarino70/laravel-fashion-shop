@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Shoe;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShoeController;
 
@@ -16,7 +17,8 @@ use App\Http\Controllers\ShoeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $shoes = Shoe::all();
+    return view('welcome', compact('shoes'));
 });
 
 Route::get('/backoffice', [ShoeController::class, 'index'])->middleware(['auth', 'verified'])->name('backoffice');
