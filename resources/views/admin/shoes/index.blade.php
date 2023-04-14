@@ -29,7 +29,6 @@
                     <td>{{ $shoe->price }}</td>
                     <td>{{ $shoe->size }}</td>
 
-                    <td><a href="{{ route('backoffice')}}">dettaglio</a></td>
                     <td><a href="{{ route('shoes.edit', $shoe)}}">modifica</a></td>
                     <td>
                         <a href="{{ route('backoffice')}}">dettaglio</a>
