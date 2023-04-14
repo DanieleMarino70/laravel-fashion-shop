@@ -15,6 +15,8 @@
                     <th scope="col">material</th>
                     <th scope="col">price</th>
                     <th scope="col">size</th>
+                    <th scope="col">Actions</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -26,12 +28,23 @@
                     <td>{{ $shoe->material }}</td>
                     <td>{{ $shoe->price }}</td>
                     <td>{{ $shoe->size }}</td>
+<<<<<<< HEAD
                     <td><a href="{{ route('backoffice')}}">dettaglio</a></td>
                     <td><a href="{{ route('shoes.edit', $shoe)}}">modifica</a></td>
+=======
+                    <td>
+                        <a href="{{ route('backoffice')}}">dettaglio</a>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $shoe->id }}">
+                            Elimina              
+                        </button>
+                    </td>
+>>>>>>> e634a83efe816842126a6b0822d0c6eed2cf14c1
                     
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    @include('admin.shoes.delete')
 @endsection
