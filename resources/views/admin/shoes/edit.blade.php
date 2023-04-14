@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="container">
+@include('layouts.partials.errors')
+
         <form action="{{ route('shoes.update', $shoe) }}" method="POST">
             @method('PUT') @csrf
         

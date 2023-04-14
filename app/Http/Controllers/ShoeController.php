@@ -37,9 +37,10 @@ class ShoeController extends Controller
      */
     public function store(Request $request)
     {
+       
 
+      
         $data = $this->validation($request->all());
-
         $shoe = new Shoe;
         $shoe->fill($data);
         $shoe->save();
@@ -77,6 +78,8 @@ class ShoeController extends Controller
      */
     public function update(Request $request, Shoe $shoe)
     {
+
+        
         $data = $this->validation($request->all());
         $shoe->update($data);
         return redirect()->route('shoes.index');
@@ -100,17 +103,17 @@ class ShoeController extends Controller
         $validator = Validator::make(
           $data,
           [
-          'manifacturer' => 'required|max:40',
+          'manufacturer' => 'required|max:40',
           'model' => 'required|max:40',
           'material' => 'max:100',
           'description' => 'max:1000',
           'price' => 'required|decimal:2',
-          'size' => 'required|smallInteger'
+       
           ],
     
           [
-          'manifacturer.required' => 'Il produttore è obbligatorio ',
-          'manifacturer.max' => 'Il produttore deve avere massimo 40 caratteri ',
+          'manufacturer.required' => 'Il produttore è obbligatorio ',
+          'manufacturer.max' => 'Il produttore deve avere massimo 40 caratteri ',
           
           'model.required' => 'Il modello è obbligatorio',
           'model.required' => 'Il modello deve avere massimo 40 caratteri',
