@@ -37,7 +37,11 @@ class ShoeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $shoe = new Shoe;
+        $shoe->fill($data);
+        $shoe->save();
+        return to_route('backoffice');
     }
 
     /**
