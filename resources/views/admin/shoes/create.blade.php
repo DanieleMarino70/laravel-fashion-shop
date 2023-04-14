@@ -2,13 +2,19 @@
 
 
 @section('content')
+
+
+
 <div class="container mt-5">
+@include('layouts.partials.errors')
+
 
     <form action="{{ route('shoes.store') }}" method="POST" enctype="multipart/form-data">
            @csrf
            <div class="mb-3">
                <label for="manufacturer" class="form-label">Produttore</label>
-               <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Produttore" value="{{old('manufacturer')}}">
+               <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Produttore" value="{{old('manufacturer')}}" >
+            
            </div>
 
            <div class="mb-3">

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shoe;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class ShoeController extends Controller
 {
     /**
@@ -37,7 +37,9 @@ class ShoeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+
+        $data = $this->validation($request->all());
+
         $shoe = new Shoe;
         $shoe->fill($data);
         $shoe->save();
@@ -75,7 +77,7 @@ class ShoeController extends Controller
      */
     public function update(Request $request, Shoe $shoe)
     {
-        $data = $request->all();
+        $data = $this->validation($request->all());
         $shoe->update($data);
         return redirect()->route('shoes.index');
 
@@ -92,4 +94,40 @@ class ShoeController extends Controller
         $shoe->delete();
         return redirect()->route('shoes.index');
     }
-}
+
+
+    private function validation($data) {
+        $validator = Validator::make(
+          $data,
+          [
+          'manifacturer' => 'required|max:40',
+          'model' => 'required|max:40',
+          'material' => 'max:100',
+          'description' => 'max:1000',
+          'price' => 'required|decimal:2',
+          'size' => 'required|smallInteger'
+          ],
+    
+          [
+          'manifacturer.required' => 'Il produttore è obbligatorio ',
+          'manifacturer.max' => 'Il produttore deve avere massimo 40 caratteri ',
+          
+          'model.required' => 'Il modello è obbligatorio',
+          'model.required' => 'Il modello deve avere massimo 40 caratteri',
+          
+          'material.max' => 'Il materiale è obbligatorio',
+          
+          'description.max' => 'La descrizione deve avere massimo 1000 caratteri',
+          
+          'price.required' => 'Il prezzo è obbligatorio',
+          'price.decimal' => 'Il prezzo deve avere un massimo di due cifre dopo la virgola',
+          
+          'size.required' => 'La taglia è obbligatoria'
+          
+          ]
+            )->validate();
+         return $validator;
+       }
+    }
+
+    
