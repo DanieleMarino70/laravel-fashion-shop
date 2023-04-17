@@ -80,6 +80,8 @@
 
         <main class="">
             @yield('content')
+
+            @yield('scripts')
         </main>
     </div>
 </body>

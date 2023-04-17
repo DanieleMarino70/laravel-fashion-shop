@@ -9,7 +9,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-start">
-          Sei sicuro di voler eliminare la pasta {{ $shoe->model }}? <br>
+          Sei sicuro di voler eliminare la scarpa {{ $shoe->model }}? <br>
           L'operazione non è reversibile
         </div>
         <div class="modal-footer">

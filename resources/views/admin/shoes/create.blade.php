@@ -42,6 +42,21 @@
                @enderror
            </div>
 
+           <div class="row mb-3">
+            <div class="col-2 text-end">
+                <label for="file" class="form-label">Immagine</label>
+                   <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
+                   @error('image')
+                   <div class="invalid-feedback">
+                    {{ $message }}
+                   </div>
+                   @enderror
+            </div>
+            <div class="col-2">
+                <img src="https://cdn11.bigcommerce.com/s-1812kprzl2/images/stencil/original/products/426/5082/no-image__12882.1665668288.jpg?c=2" class="img-fluid" id="image-preview" alt="">
+            </div>
+           </div>
+
            <div class="mb-3">
                <label for="price" class="form-label">Prezzo</label>
                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{old('price')}}">
@@ -79,4 +94,22 @@
            <button class="btn btn-primary">Aggiungi</button>
        </form>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    const imageInputEl = document.getElementById('image');
+    const imagePreviewEl = document.getElementById('image-preview');
+
+    imageInputEl.addEventListener('change', () => {
+        if (imageInputEl.files && imageInputEl.files[0]){
+            const reader = new FileReader();
+            reader.readAsDataURL(imageInputEl.files[0]);
+
+            reader.onload = e => {
+                imagePreviewEl.src = e.target.result;
+            }
+        }
+    })
+</script>
 @endsection

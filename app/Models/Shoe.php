@@ -10,5 +10,5 @@ class Shoe extends Model
     use HasFactory;
 
 
-    protected $fillable = ['manufacturer', 'model', 'material', 'description', 'price', 'size'];
+    protected $fillable = ['manufacturer', 'model', 'material', 'description', 'price', 'size', 'image'];
 }
