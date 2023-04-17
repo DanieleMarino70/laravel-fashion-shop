@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Aggiungi nuova scarpa' )
+
+
 
 @section('content')
 
