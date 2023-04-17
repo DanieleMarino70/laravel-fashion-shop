@@ -14,7 +14,7 @@
                 <span> <strong>PRICE: {{$shoe->price}}$</strong> </span>
             </div>
             <div class="w-50">
-                <img src="https://en.pimg.jp/047/504/268/1/47504268.jpg" alt="">
+                <img src="{{asset('storage/' . $shoe->image)}}" alt="" class="img-fluid">
             </div>
         </div>
 
