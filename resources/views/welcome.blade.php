@@ -5,7 +5,9 @@
         @foreach ($shoes as $shoe)
         <div class="col mb-4">
             <div class="card h-100">
-                <img src="{{asset('storage/' . $shoe->image)}}" alt="">
+                <div class="ratio ratio-16x9 img-cont">
+                    <img src="{{asset('storage/' . $shoe->image)}}" alt="" class="border rounded">
+                </div>
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{route('shoes.show', $shoe)}}">{{$shoe->model}}</a></h5>
                     <h6 class="card-subtitle">{{$shoe->manufacturer}}</h6>

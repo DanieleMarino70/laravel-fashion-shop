@@ -1,10 +1,10 @@
 
 
 
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                Shoes Shop
+            <a class="navbar-brand d-flex align-items-center logo-cont" href="{{ url('/') }}">
+                    <img src="{{asset('storage/uploads/shoes/logo.png')}}" alt="" class="img-fluid">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
