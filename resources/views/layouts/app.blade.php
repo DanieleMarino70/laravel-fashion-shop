@@ -36,12 +36,7 @@
 
             @yield('scripts')
         </main>
->>>>>>> images
     </div>
-
-    <main>
-        @yield('content')
-    </main>
 </body>
 
 </html>
