@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Lista Scarpe' )
+
+
 @section('content')
 
     <div class="container">
@@ -30,14 +33,14 @@
                     <td>{{ $shoe->price }}</td>
                     <td>{{ $shoe->size }}</td>
 
-                    <td><a href="{{ route('shoes.edit', $shoe)}}">modifica</a></td>
                     <td>
-                        <a href="{{ route('shoes.show', $shoe)}}">dettaglio</a>
-
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $shoe->id }}">
-                            Elimina              
-                        </button>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a href="{{ route('shoes.edit', $shoe)}}" title="Modifica"><i class="bi bi-pencil-square text-warning ps-2 pe-2"></i></a>
+                            <a href="{{ route('shoes.show', $shoe)}}" title="Dettaglio"><i class="bi bi-eye ps-2 pe-2"></i></a>
+                            <button type="button" class="btn"  data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $shoe->id }}"><i class="bi bi-trash text-danger"></i></button>
+                        </div>
                     </td>
+                    
                     
                 </tr>
                 @endforeach
