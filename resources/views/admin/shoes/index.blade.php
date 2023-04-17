@@ -5,6 +5,7 @@
     <div class="container">
         <div class="d-flex justify-content-end mt-5">
             <a href="{{route('create')}}" class="btn btn-primary">Aggiungi Scarpa</a>
+            <a href="{{route('shoes.trash')}}" class="btn btn-primary mx-4">Cestino</a>
         </div>
         <table class="table">
             <thead>

@@ -20,6 +20,8 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->float('price');
             $table->smallInteger('size');
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }

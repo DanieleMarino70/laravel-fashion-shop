@@ -131,6 +131,13 @@ class ShoeController extends Controller
             )->validate();
          return $validator;
        }
+
+       public function trash(){
+            $shoe = Shoe::onlyTrashed()->get();
+            dd($shoe);
+
+            return view('admin.shoes.trash', 'shoe');
+       }
     }
 
     

@@ -32,6 +32,14 @@ Route::middleware('auth')->group(function () {
     })->name('create');
 });
 
-Route::resource('shoes', ShoeController::class);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/shoes/trash', [ProfileController::class, 'trash'])->name('shoes.trash');
+    Route::put('/shoes/{shoe}/restore', [ProfileController::class, 'restore'])->name('shoes.restore');
+    Route::delete('/shoes/{shoe}/force-delete', [ProfileController::class, 'forceDelete'])->name('shoes.forse-delete');
+    Route::resource('shoes', ShoeController::class);
+
+});
+
 
 require __DIR__ . '/auth.php';
