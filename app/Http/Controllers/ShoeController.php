@@ -108,6 +108,7 @@ class ShoeController extends Controller
           'material' => 'max:100',
           'description' => 'max:1000',
           'price' => 'required|decimal:2',
+          'size' => 'required'
        
           ],
     
