@@ -34,9 +34,9 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/shoes/trash', [ProfileController::class, 'trash'])->name('shoes.trash');
-    Route::put('/shoes/{shoe}/restore', [ProfileController::class, 'restore'])->name('shoes.restore');
-    Route::delete('/shoes/{shoe}/force-delete', [ProfileController::class, 'forceDelete'])->name('shoes.forse-delete');
+    Route::get('/shoes/trash', [ShoeController::class, 'trash'])->name('shoes.trash');
+    // Route::put('/shoes/{shoe}/restore', [ShoeController::class, 'restore'])->name('shoes.restore');
+    // Route::delete('/shoes/{shoe}/force-delete', [ShoeController::class, 'forceDelete'])->name('shoes.forse-delete');
     Route::resource('shoes', ShoeController::class)->parameters(['shoes' => 'shoe:slug']);
 });
 
