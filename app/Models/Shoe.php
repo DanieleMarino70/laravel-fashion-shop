@@ -11,5 +11,5 @@ class Shoe extends Model
     use HasFactory, SoftDeletes;
 
 
-    protected $fillable = ['manufacturer', 'model', 'material', 'description', 'price', 'size'];
+    protected $fillable = ['manufacturer', 'model', 'material', 'description', 'price', 'size', 'image'];
 }

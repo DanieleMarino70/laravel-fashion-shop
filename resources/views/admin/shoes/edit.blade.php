@@ -8,6 +8,7 @@
     <div class="container mt-5">
 {{-- @include('layouts.partials.errors') --}}
 
+<<<<<<< HEAD
         <form action="{{ route('shoes.update', $shoe) }}" method="POST">
             @method('PUT') 
             @csrf
@@ -15,6 +16,14 @@
             <div class="mb-3">
                 <label for="manufacturer" class="form-label">manufacturer</label>
                 <input
+=======
+        <form action="{{ route('shoes.update', $shoe) }}" method="POST" enctype="multipart/form-data">
+            @method('PUT') @csrf
+        
+            <div class="mb-3">
+            <label for="manufacturer" class="form-label">Produttore</label>
+            <input
+>>>>>>> images
                 type="text"
                 class="form-control @error('manufacturer') is-invalid @enderror"
                 id="manufacturer"
@@ -25,12 +34,21 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
+<<<<<<< HEAD
                 @enderror
             </div>
             
             <div class="mb-3">
                 <label for="model" class="form-label">model</label>
                 <input
+=======
+            @enderror
+            </div>
+        
+            <div class="mb-3">
+            <label for="model" class="form-label">Modello</label>
+            <input
+>>>>>>> images
                 type="text"
                 class="form-control @error('model') is-invalid @enderror"
                 id="model"
@@ -41,12 +59,22 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
+<<<<<<< HEAD
                 @enderror
             </div>
         
             <div class="mb-3">
                 <label for="material" class="form-label">material</label>
                 <input
+=======
+            @enderror
+            </div>
+        
+            <div class="mb-3">
+
+            <label for="material" class="form-label">Materiale</label>
+            <input
+>>>>>>> images
                 type="text"
                 class="form-control @error('material') is-invalid @enderror"
                 id="material"
@@ -57,6 +85,7 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
+<<<<<<< HEAD
                 @enderror
             </div>
 
@@ -64,6 +93,40 @@
             <div class="mb-3">
                 <label for="price" class="form-label">price</label>
                 <input
+=======
+            @enderror
+            </div>
+            
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrizione</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="description"
+                    name="description"
+                    value="{{ $shoe->description }}"
+                />
+            </div>
+
+            <div class="mb-3 row">
+                <div class=" col-6">
+                    <label for="file" class="form-label">Immagine</label>
+                       <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
+                       @error('image')
+                       <div class="invalid-feedback">
+                        {{ $message }}
+                       </div>
+                       @enderror
+                </div>
+                <div class="col-6">
+                    <img src="{{asset('storage/' . $shoe->image)}}" class="img-fluid" id="image-preview" alt="">
+                </div>
+               </div>
+        
+            <div class="mb-3">
+            <label for="price" class="form-label">Prezzo</label>
+            <input
+>>>>>>> images
                 type="number"
                 class="form-control @error('price') is-invalid @enderror"
                 id="price"
@@ -74,6 +137,7 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
+<<<<<<< HEAD
                 @enderror
             </div>
             
@@ -81,6 +145,14 @@
             <div class="mb-3">
                 <label for="size" class="form-label">size</label>
                 <input
+=======
+            @enderror
+            </div>
+        
+            <div class="mb-3">
+            <label for="size" class="form-label">Taglia</label>
+            <input
+>>>>>>> images
                 type="text"
                 class="form-control  @error('size') is-invalid @enderror"
                 id="size"
@@ -89,6 +161,7 @@
                 />
                 @error('size')
                 <div class="invalid-feedback">
+<<<<<<< HEAD
                     {{ $message }}
                 </div>
                 @enderror
@@ -106,8 +179,33 @@
                 </div>
                 @enderror
             </div>
+=======
+                {{ $message }}
+               </div>
+            @enderror
+            </div>
+        
+>>>>>>> images
         
             <button type="submit" class="btn btn-primary">Salva</button>
         </form>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    const imageInputEl = document.getElementById('image');
+    const imagePreviewEl = document.getElementById('image-preview');
+
+    imageInputEl.addEventListener('change', () => {
+        if (imageInputEl.files && imageInputEl.files[0]){
+            const reader = new FileReader();
+            reader.readAsDataURL(imageInputEl.files[0]);
+
+            reader.onload = e => {
+                imagePreviewEl.src = e.target.result;
+            }
+        }
+    })
+</script>
 @endsection

@@ -21,6 +21,7 @@ class ShoeSeeder extends Seeder
             $shoe->manufacturer = $faker->company();
             $shoe->model = $faker->sentence(1, true);
             $shoe->material = $faker->sentence(5, true);
+            $shoe->image = 'uploads/shoes/no-image.webp';
             $shoe->description = $faker->sentence(20, true);
             $shoe->price = $faker->randomFloat(2, 20, 90);
             $shoe->size = $faker->numberBetween(16, 53);

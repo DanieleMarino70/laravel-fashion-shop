@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shoe;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+
 class ShoeController extends Controller
 {
     /**
@@ -37,10 +40,16 @@ class ShoeController extends Controller
      */
     public function store(Request $request)
     {
-       
 
-      
         $data = $this->validation($request->all());
+
+        if (Arr::exists($data, 'image')) {
+            $img_path = Storage::put('uploads/shoes', $data['image']);
+            $data['image'] = $img_path;
+        } else {
+            $data['image'] = 'uploads/shoes/no-image.webp';
+        }
+
         $shoe = new Shoe;
         $shoe->fill($data);
         $shoe->save();
@@ -79,9 +88,16 @@ class ShoeController extends Controller
     public function update(Request $request, Shoe $shoe)
     {
 
-        
+
         $data = $this->validation($request->all());
+        if (Arr::exists($data, 'image')) {
+            $img_path = Storage::put('uploads/shoes', $data['image']);
+            $data['image'] = $img_path;
+        } else {
+            $data['image'] = 'uploads/shoes/no-image.webp';
+        }
         $shoe->update($data);
+
         return redirect()->route('shoes.index');
 
     }
@@ -99,8 +115,10 @@ class ShoeController extends Controller
     }
 
 
-    private function validation($data) {
+    private function validation($data)
+    {
         $validator = Validator::make(
+<<<<<<< HEAD
           $data,
           [
           'manufacturer' => 'required|max:40',
@@ -140,5 +158,41 @@ class ShoeController extends Controller
             return view('admin.shoes.trash', 'shoe');
        }
     }
+=======
+            $data,
+            [
+                'manufacturer' => 'required|max:40',
+                'model' => 'required|max:40',
+                'material' => 'max:100',
+                'description' => 'max:1000',
+                'price' => 'required|decimal:2',
+                'size' => 'required',
+                'image' => 'image|mimes:jpg,png,jpeg,gif,svg'
+>>>>>>> images
 
-    
+            ],
+
+            [
+                'manufacturer.required' => 'Il produttore è obbligatorio ',
+                'manufacturer.max' => 'Il produttore deve avere massimo 40 caratteri ',
+
+                'model.required' => 'Il modello è obbligatorio',
+                'model.max' => 'Il modello deve avere massimo 40 caratteri',
+
+                'material.max' => 'Il materiale è obbligatorio',
+
+                'description.max' => 'La descrizione deve avere massimo 1000 caratteri',
+
+                'price.required' => 'Il prezzo è obbligatorio',
+                'price.decimal' => 'Il prezzo deve avere un massimo di due cifre dopo la virgola',
+
+                'size.required' => 'La taglia è obbligatoria',
+
+                'image.image' => 'Deve essere un\'immagine',
+                'image.mimes' => 'L\'immagine deve essere in formato JPG, PNG, JPEG, GIF o SVG.'
+
+            ]
+        )->validate();
+        return $validator;
+    }
+}
