@@ -46,7 +46,7 @@
            </div>
 
            <div class="row mb-3">
-            <div class="col-2 text-end">
+            <div class="col-6">
                 <label for="file" class="form-label">Immagine</label>
                    <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
                    @error('image')
@@ -55,8 +55,8 @@
                    </div>
                    @enderror
             </div>
-            <div class="col-2">
-                <img src="https://cdn11.bigcommerce.com/s-1812kprzl2/images/stencil/original/products/426/5082/no-image__12882.1665668288.jpg?c=2" class="img-fluid" id="image-preview" alt="">
+            <div class="col-6">
+                <img src="{{asset('storage/uploads/shoes/no-image.webp')}}" class="img-fluid" id="image-preview" alt="">
             </div>
            </div>
 
