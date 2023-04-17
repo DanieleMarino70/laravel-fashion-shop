@@ -97,7 +97,7 @@
                 class="form-control @error('price') is-invalid @enderror"
                 id="price"
                 name="price"
-                value="{{ $shoe->price }}"
+                value="{{  number_format((float)$shoe->price, 2, '.', '') }}"
                 />
                 @error('price')
                 <div class="invalid-feedback">

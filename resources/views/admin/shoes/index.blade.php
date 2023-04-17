@@ -30,7 +30,7 @@
                     <td>{{ $shoe->manufacturer }}</td>
                     <td>{{ $shoe->model }}</td>
                     <td>{{ $shoe->material }}</td>
-                    <td>{{ $shoe->price }}</td>
+                    <td>{{  number_format((float)$shoe->price, 2, '.', '') }}</td>
                     <td>{{ $shoe->size }}</td>
 
                     <td>

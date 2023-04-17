@@ -16,7 +16,7 @@
                 </div>
                 <div class="d-flex w-100 justify-content-end p-1">
                     <h4>
-                        {{$shoe->price}}$
+                      {{  number_format((float)$shoe->price, 2, '.', '') }}
                     </h4>
                 </div>
             </div>
