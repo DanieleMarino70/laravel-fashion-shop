@@ -159,7 +159,6 @@ class ShoeController extends Controller
     public function trash()
     {
         $shoe = Shoe::onlyTrashed()->get();
-        dd($shoe);
 
         return view('admin.shoes.trash', 'shoe');
     }
