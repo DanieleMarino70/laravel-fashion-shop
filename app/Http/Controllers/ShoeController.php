@@ -118,47 +118,6 @@ class ShoeController extends Controller
     private function validation($data)
     {
         $validator = Validator::make(
-<<<<<<< HEAD
-          $data,
-          [
-          'manufacturer' => 'required|max:40',
-          'model' => 'required|max:40',
-          'material' => 'max:100',
-          'description' => 'max:1000',
-          'price' => 'required|decimal:2',
-          'size' => 'required'
-       
-          ],
-    
-          [
-          'manufacturer.required' => 'Il produttore è obbligatorio ',
-          'manufacturer.max' => 'Il produttore deve avere massimo 40 caratteri ',
-          
-          'model.required' => 'Il modello è obbligatorio',
-          'model.required' => 'Il modello deve avere massimo 40 caratteri',
-          
-          'material.max' => 'Il materiale è obbligatorio',
-          
-          'description.max' => 'La descrizione deve avere massimo 1000 caratteri',
-          
-          'price.required' => 'Il prezzo è obbligatorio',
-          'price.decimal' => 'Il prezzo deve avere un massimo di due cifre dopo la virgola',
-          
-          'size.required' => 'La taglia è obbligatoria'
-          
-          ]
-            )->validate();
-         return $validator;
-       }
-
-       public function trash(){
-            $shoe = Shoe::onlyTrashed()->get();
-            dd($shoe);
-
-            return view('admin.shoes.trash', 'shoe');
-       }
-    }
-=======
             $data,
             [
                 'manufacturer' => 'required|max:40',
@@ -168,8 +127,6 @@ class ShoeController extends Controller
                 'price' => 'required|decimal:2',
                 'size' => 'required',
                 'image' => 'image|mimes:jpg,png,jpeg,gif,svg'
->>>>>>> images
-
             ],
 
             [
@@ -177,7 +134,7 @@ class ShoeController extends Controller
                 'manufacturer.max' => 'Il produttore deve avere massimo 40 caratteri ',
 
                 'model.required' => 'Il modello è obbligatorio',
-                'model.max' => 'Il modello deve avere massimo 40 caratteri',
+                'model.required' => 'Il modello deve avere massimo 40 caratteri',
 
                 'material.max' => 'Il materiale è obbligatorio',
 
@@ -188,11 +145,22 @@ class ShoeController extends Controller
 
                 'size.required' => 'La taglia è obbligatoria',
 
+
+
                 'image.image' => 'Deve essere un\'immagine',
                 'image.mimes' => 'L\'immagine deve essere in formato JPG, PNG, JPEG, GIF o SVG.'
+
 
             ]
         )->validate();
         return $validator;
+    }
+
+    public function trash()
+    {
+        $shoe = Shoe::onlyTrashed()->get();
+        dd($shoe);
+
+        return view('admin.shoes.trash', 'shoe');
     }
 }
