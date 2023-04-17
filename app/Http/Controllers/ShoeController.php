@@ -47,7 +47,7 @@ class ShoeController extends Controller
             $img_path = Storage::put('uploads/shoes', $data['image']);
             $data['image'] = $img_path;
         } else {
-            $data['image'] = 'uploads/shoes/no-image.webp';
+            $data['image'] = 'images/no-image.webp';
         }
 
         $shoe = new Shoe;
@@ -94,7 +94,7 @@ class ShoeController extends Controller
             $img_path = Storage::put('uploads/shoes', $data['image']);
             $data['image'] = $img_path;
         } else {
-            $data['image'] = 'uploads/shoes/no-image.webp';
+            $data['image'] = 'images/no-image.webp';
         }
         $shoe->update($data);
 

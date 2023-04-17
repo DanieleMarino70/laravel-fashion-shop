@@ -56,7 +56,7 @@
                    @enderror
             </div>
             <div class="col-6">
-                <img src="{{asset('storage/uploads/shoes/no-image.webp')}}" class="img-fluid" id="image-preview" alt="">
+                <img src="{{asset('images/no-image.webp')}}" class="img-fluid" id="image-preview" alt="">
             </div>
            </div>
 
