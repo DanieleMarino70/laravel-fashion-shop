@@ -8,22 +8,12 @@
     <div class="container mt-5">
 {{-- @include('layouts.partials.errors') --}}
 
-<<<<<<< HEAD
-        <form action="{{ route('shoes.update', $shoe) }}" method="POST">
-            @method('PUT') 
-            @csrf
-        
-            <div class="mb-3">
-                <label for="manufacturer" class="form-label">manufacturer</label>
-                <input
-=======
         <form action="{{ route('shoes.update', $shoe) }}" method="POST" enctype="multipart/form-data">
             @method('PUT') @csrf
         
             <div class="mb-3">
             <label for="manufacturer" class="form-label">Produttore</label>
             <input
->>>>>>> images
                 type="text"
                 class="form-control @error('manufacturer') is-invalid @enderror"
                 id="manufacturer"
@@ -34,21 +24,13 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-<<<<<<< HEAD
                 @enderror
             </div>
             
-            <div class="mb-3">
-                <label for="model" class="form-label">model</label>
-                <input
-=======
-            @enderror
-            </div>
         
             <div class="mb-3">
             <label for="model" class="form-label">Modello</label>
             <input
->>>>>>> images
                 type="text"
                 class="form-control @error('model') is-invalid @enderror"
                 id="model"
@@ -59,22 +41,15 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-<<<<<<< HEAD
                 @enderror
             </div>
         
-            <div class="mb-3">
-                <label for="material" class="form-label">material</label>
-                <input
-=======
-            @enderror
-            </div>
+        
         
             <div class="mb-3">
 
             <label for="material" class="form-label">Materiale</label>
             <input
->>>>>>> images
                 type="text"
                 class="form-control @error('material') is-invalid @enderror"
                 id="material"
@@ -85,17 +60,9 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-<<<<<<< HEAD
                 @enderror
             </div>
 
-            
-            <div class="mb-3">
-                <label for="price" class="form-label">price</label>
-                <input
-=======
-            @enderror
-            </div>
             
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
@@ -126,7 +93,6 @@
             <div class="mb-3">
             <label for="price" class="form-label">Prezzo</label>
             <input
->>>>>>> images
                 type="number"
                 class="form-control @error('price') is-invalid @enderror"
                 id="price"
@@ -137,22 +103,13 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-<<<<<<< HEAD
                 @enderror
             </div>
             
-            
-            <div class="mb-3">
-                <label for="size" class="form-label">size</label>
-                <input
-=======
-            @enderror
-            </div>
         
             <div class="mb-3">
             <label for="size" class="form-label">Taglia</label>
             <input
->>>>>>> images
                 type="text"
                 class="form-control  @error('size') is-invalid @enderror"
                 id="size"
@@ -161,32 +118,11 @@
                 />
                 @error('size')
                 <div class="invalid-feedback">
-<<<<<<< HEAD
                     {{ $message }}
                 </div>
                 @enderror
             </div>    
-            
-            <div class="mb-3">
-                <label for="album" class="form-label">Descrizione</label>
-                <textarea type="text" 
-                class="form-control @error('description') is-invalid @enderror" id="description" 
-                name="description" 
-                placeholder="Descrizione">{{ $shoe->description }}</textarea>
-                @error('description')
-                <div class="invalid-feedback">
-                 {{ $message }}
-                </div>
-                @enderror
-            </div>
-=======
-                {{ $message }}
-               </div>
-            @enderror
-            </div>
-        
->>>>>>> images
-        
+                        
             <button type="submit" class="btn btn-primary">Salva</button>
         </form>
     </div>
